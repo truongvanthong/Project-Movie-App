@@ -1,0 +1,103 @@
+{% extends 'myapp/base.html' %} {%block content %} {% if page_obj %}
+<div class="container-fluid">
+    <div class="row mb-4 mt-2">
+        {% for movie in page_obj %}
+        <div class="col-xl-2 col-lg-3  col-md-4 col-sm-6 movie-selector">
+            <div class="card card-style mt-2 mb-2">
+                <img src="{{ movie.poster}}" class="card-img-top" height='400px' alt="image">
+                <div class="card-body">
+                    <h5 class=" m-info card-title text-center mb-1 pink-fg title-style">{{movie.title}}</h5>
+                    <p style="display:flex; justify-content: center;" class="white-fg">
+                        <i class="bi bi-star-fill" style="color: gold; margin-right:5px;"></i> {% if movie.rating %}
+                        <b style="color: aliceblue;"> {{movie.rating}}/10</b> {% else %}
+                        <b> No ratings</b> {% endif %}
+                    </p>
+                    <p class="m-info"><i class="bi bi-calendar m-r"></i>{{movie.year}}</p>
+                    <p class="m-info yellow-fg genre-info">{{movie.genre}}</p>
+                    <p class="m-info green-fg lang-info">{{movie.lang}}</p>
+                </div>
+                <div class="d-grid gap-2 btn-style">
+                    <a href="{% url 'moviepage' movie.id user.id %}" class="btn btn-outline-info btn-sm">View More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<p>No products found.</p>
+{% endif %} {% if page_obj.has_other_pages %}
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .step-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .pagination a {
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0 5px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background-color: #FFA500;
+        transition: background-color 0.5s ease;
+    }
+    
+    .pagination a:hover {
+        background-color: #FFC200;
+    }
+    
+    .current-page {
+        font-weight: bold;
+        font-size: 18px;
+        margin: 0 20px;
+        color: #FFFFFF;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .step-links a {
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .step-links a:hover {
+        transform: scale(1.2);
+    }
+</style>
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+          <a href="?q={{ query }}&page=1">&laquo; First</a>
+          <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+        
+        <span class="current-page">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span> {% if page_obj.has_next %}
+    <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a> {% endif %}
+    </span>
+</div>
+
+{% endif %} {% endblock%}
