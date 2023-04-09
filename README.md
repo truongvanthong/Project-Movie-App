@@ -47,11 +47,22 @@ Trong đó:
 Bạn có thể sửa file **settings.py** trong project của mình để thêm các thông tin kết nối tới database của bạn. Lưu ý rằng, bạn cần phải cài đặt driver tương ứng cho database của mình (ví dụ: psycopg2 cho PostgreSQL) để Django có thể kết nối và thao tác với database.
 
 ## Bước 4: Cài đặt các package, thêm dữ liệu vào database và chạy server
+```bash
+ > pip install -r requirements.txt
+ ```
+```bash
+> python manage.py makemigrations
+> python manage.py migrate
+```
+
+`Mọi người, hãy chạy lệnh này để điền vào cơ sở dữ liệu.`
+```bash
+> python data_Movie.py
+```
 
 ### Sử dụng file `run.bat`
 
 Bạn có thể sử dụng file `run.bat` bằng cách chạy lệnh command prompt:
 `run.bat`
-
-Lệnh này sẽ thực thi các lệnh trong file `data_Movie.py`, bao gồm thêm dữ liệu vào database và chạy server Django. Sau khi chạy xong, bạn có thể truy cập trang web của mình trên trình duyệt với địa chỉ `http://127.0.0.1:8000/`.
+Sau khi chạy xong, bạn có thể truy cập trang web của mình trên trình duyệt với địa chỉ `http://127.0.0.1:8000/`.
 
