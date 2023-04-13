@@ -168,94 +168,12 @@
                         </li>
                         {% endif %}
                 </ul>
-                <!-- <style>
-                    .search-form {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin-bottom: 10px;
-                    }
-                    
-                    .search-form input {
-                        padding: 5px;
-                        border-radius: 3px;
-                        border: 1px solid #ccc;
-                        font-size: 16px;
-                        transition: all 0.3s ease;
-                    }
-                    
-                    .search-form input:focus {
-                        border-color: #0077cc;
-                        box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
-                    }
-                    
-                    .search-form button {
-                        background-color: #0077cc;
-                        color: #fff;
-                        border-radius: 3px;
-                        border: none;
-                        padding: 5px 10px;
-                        font-size: 16px;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        position: relative;
-                        overflow: hidden;
-                        z-index: 1;
-                    }
-                    
-                    .search-form button:before {
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: rgba(255, 255, 255, 0.15);
-                        border-radius: 50%;
-                        width: 1em;
-                        height: 1em;
-                        opacity: 0;
-                        transition: all 0.3s ease-out;
-                        z-index: -1;
-                    }
-                    
-                    .search-form button:hover:before {
-                        width: 20em;
-                        height: 20em;
-                        opacity: 1;
-                    }
-                    
-                    .search-form button:focus {
-                        outline: none;
-                        box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.2);
-                    }
-                </style>
-
-                <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-right: 20px;">
-                    <form action="{% url 'search' %}" method="get" class="search-form">
-                        <input type="text" id="search" name="q" placeholder="Search Movie By Name">
-                        <button type="submit">
-                                Search
-                            </button>
-                    </form>
-                </div> -->
-
             </div>
 
         </div>
     </nav>
     {% block content %} {% endblock %}
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script> -->
-
     <script src="{% static 'js/ajaxutils.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
 

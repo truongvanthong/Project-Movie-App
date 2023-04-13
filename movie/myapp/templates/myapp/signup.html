@@ -1,7 +1,33 @@
 {% extends 'myapp/base.html' %} {% block content %} {% block extra_css %}
 <style>
     .form-label {
-        color: #000000;
+        color: #4a4a4a;
+        font-weight: 600;
+    }
+    
+    .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+    }
+    
+    .btn {
+        border-radius: 4px;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
     }
 </style>
 {% endblock %}
@@ -37,8 +63,3 @@
     </div>
 </div>
 {% endblock %}
-
-<!-- <footer id="footer">
-    <p><label>Movie Manifest</label><span>Site Settings</span><span>legal</span><span>Privacy Policy</span><span>Contact Us</span></p>
-    <p><span>Cookie Settings</span><span>help</span><span>Site Settings</span>Admin</p>
-  </footer> -->
