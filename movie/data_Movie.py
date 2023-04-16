@@ -10,7 +10,7 @@ if __name__ == "__main__":
     
      # -------------------------
     # đọc dữ liệu từ file csv
-    df = pd.read_csv('data_Done.csv')
+    df = pd.read_csv('data_Movies.csv')
     
     # chia dữ liệu thành hai DataFrame
     df_1 = df[:4000]
