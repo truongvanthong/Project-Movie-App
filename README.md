@@ -6,13 +6,13 @@ Chạy file
 ```bash
  > run_venv&install_thuvien.bat
  ```
-## Bước 3. Để thiết lập kết nối tới database, bạn cần chỉnh sửa file `settings.py` trong project của mình. Ví dụ, nếu bạn sử dụng PostgreSQL, bạn có thể sử dụng các thông tin kết nối sau:
+## Bước 2. Để thiết lập kết nối tới database, bạn cần chỉnh sửa file `settings.py` trong project của mình. Ví dụ, nếu bạn sử dụng PostgreSQL, bạn có thể sử dụng các thông tin kết nối sau:
 
 ```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'movie_DB',                      
+        'NAME': 'Movie_DB',                      
         'USER': 'postgres',
         'PASSWORD': 'thong',
         'HOST': 'localhost',
@@ -35,6 +35,11 @@ Bạn có thể sửa file **settings.py** trong project của mình để thêm
 ```bash
 > python manage.py makemigrations
 > python manage.py migrate
+```
+
+`Tạo admin`
+```bash
+> python manage.py createsuperuser
 ```
 
 `Mọi người, hãy chạy lệnh này để điền vào cơ sở dữ liệu.`
