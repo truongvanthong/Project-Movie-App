@@ -1,11 +1,19 @@
 # Movie-Website-Django
 
-## Bước 1: Tạo môi trường ảo Python và Cài đặt thư viện
-
+## Bước 1: Tạo môi trường ảo Python và Cài đặt thư viện 
+`windows`
 Chạy file
 ```bash
  > run_venv&install_thuvien.bat
  ```
+`MacOS`
+```bash
+> python3 -m venv venv
+> source venv/bin/activate
+> pip install -r requirements.txt
+```
+
+
 ## Bước 2. Để thiết lập kết nối tới database, bạn cần chỉnh sửa file `settings.py` trong project của mình. Ví dụ, nếu bạn sử dụng PostgreSQL, bạn có thể sử dụng các thông tin kết nối sau:
 
 ```python
