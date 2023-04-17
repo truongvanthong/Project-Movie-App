@@ -52,4 +52,3 @@ Bạn có thể sửa file **settings.py** trong project của mình để thêm
 Bạn có thể sử dụng file `run.bat` bằng cách chạy lệnh command prompt:
 `run.bat`
 Sau khi chạy xong, bạn có thể truy cập trang web của mình trên trình duyệt với địa chỉ `http://127.0.0.1:8000/`.
-
