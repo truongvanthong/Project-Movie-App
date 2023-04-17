@@ -7,6 +7,7 @@ charset-normalizer==3.1.0
 Django==4.2
 django-embed-video==1.4.8
 exceptiongroup==1.1.1
+Faker==18.4.0
 h11==0.14.0
 idna==3.4
 numpy==1.24.2
