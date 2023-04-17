@@ -4,7 +4,7 @@
 `windows`
 Chạy file
 ```bash
- > run_venv&install_thuvien.bat
+ > run_venvXinstall_thuvien.bat
  ```
 `MacOS`
 ```bash
