@@ -14,7 +14,20 @@ function movie_search(type) {
     }
 }
 
+function movie_search_by_lang(type) {
+    movies = document.getElementsByClassName('movie-selector')
+    for (movie of movies) {
+        movie.classList.remove("hide");
+        lang = movie.getElementsByClassName('card')[0]
+            .getElementsByClassName('card-body')[0]
+            .getElementsByClassName('lang-info')[0]
+            .innerText;
+        if (!lang.toLowerCase().includes(type)) {
+            movie.classList.add('hide');
+        }
 
+    }
+}
 // Tìm kiếm theo tên phim 
 function searchMovieByName() {
     console.log('search Working');

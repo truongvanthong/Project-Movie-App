@@ -62,10 +62,12 @@ class LoginView(View):
 def dashboard(request):
     if request.user.is_authenticated:
         movies = Movie.objects.all().order_by('?')
+        lang = Movie.objects.values('lang').distinct()
+        genre = Movie.objects.values('genre').distinct()
         paginator = Paginator(movies, 18)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, "myapp/dashboard.html",{'user':request.user ,  'page_obj':page_obj})
+        return render(request, "myapp/dashboard.html",{'user':request.user ,  'page_obj':page_obj, 'lang':lang, 'genre':genre})
     else:
         return redirect('/login/')
     
@@ -183,10 +185,10 @@ def watched(request, viewerid):
                 title = title[:15]+'..'    
             genre = item[3]
             plot = item[4]
-            # lang = item[5]
+            lang = item[5]
             poster = item[5]
             rating = item[6]
-            movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'poster':poster,'rating':rating})
+            movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'poster':poster, 'lang':lang,'rating':rating})
         return render(request, 'myapp/watched.html',{'watchlist':movies,'userid':viewerid})
     else:
         return redirect('/login/') 
@@ -205,10 +207,10 @@ def favourites(request, viewerid):
                 title = title[:15]+'..'    
             genre = item[3]
             plot = item[4]
-            # lang = item[5]
+            lang = item[5]
             poster = item[5]
             rating = item[6]
-            movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'poster':poster,'rating':rating})
+            movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'lang':lang, 'poster':poster,'rating':rating})
         return render(request, 'myapp/favourite.html', {'favourites':movies,'userid':viewerid})
     else:
         return redirect('/login/')     

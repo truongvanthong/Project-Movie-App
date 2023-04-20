@@ -59,9 +59,9 @@ def create_fake_viewer_movie(num_records):
 
 # Tạo người xem giả
 print("Creating fake viewers...")
-create_fake_viewers(1000)
+create_fake_viewers(50)
 print("Done creating fake viewers")
 # Tạo bản ghi giả cho ViewerMovie
 print("Creating fake viewer movie...")
-create_fake_viewer_movie(20000)
+create_fake_viewer_movie(1000)
 print("Done creating fake viewer movie")

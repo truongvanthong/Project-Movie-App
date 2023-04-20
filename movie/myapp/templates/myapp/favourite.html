@@ -18,6 +18,7 @@
                         <b> No ratings</b> {% endif %}
                     </p>
                     <p style="margin: 10px; color: orange;" class="sky-fg">{{movie.genre}}</p>
+                    <p style="margin: 10px; color: orange;" class="sky-fg">{{movie.lang}}</p>
                     <p style="margin: 10px;">{{movie.plot}}</p>
                     <p class="container d-flex" style="justify-content: center; margin-bottom:0px;">
                         <a href="{% url 'moviepage' movie.id userid %}" class="btn btn-outline-success btn-sm mb-3">See more</a>

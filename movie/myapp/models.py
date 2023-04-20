@@ -8,13 +8,15 @@ class Viewer(User):
 
 # Movie model
 class Movie(models.Model):
-    title = models.CharField(max_length=100)
-    year = models.CharField(max_length=4)
+    title = models.CharField(max_length=1000)
+    year = models.CharField(max_length=100)
     genre = models.CharField(max_length= 100)
     plot = models.CharField(max_length=2000) # Overview
+    lang = models.CharField(max_length=70, default='English')
     poster = models.CharField('image',max_length=255, null=True, blank=True)
     rating = models.DecimalField(decimal_places = 2, null = True, blank = True, max_digits=6)
     trailor = EmbedVideoField(null = True)
+    runtime = models.IntegerField(null = True)
     
 # Movie model
 class ViewerMovie(models.Model):
