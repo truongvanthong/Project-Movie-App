@@ -28,7 +28,7 @@ urlpatterns = [
     path('logout/',views.logoutuser, name = 'logout'),
     
     path('search/',views.search, name = 'search'),
-    
+
     
     path('watched/<int:viewerid>/',views.watched, name = 'watched'),
     path('favourites/<int:viewerid>/',views.favourites, name = 'favourites'),

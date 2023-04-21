@@ -33,9 +33,10 @@ class SignupView(View):
             fm.save()
             messages.success(request,'Account Created Successfully')    
             fm = ViewerCreationForm()
+            return redirect('/login/')
         else:
             messages.error(request, "Coudn't create USer")    
-        return render(request, 'myapp/signup.html',{'form':fm})        
+        return render(request, 'myapp/signup.html',{'form':fm})     
 
 #  Hàm đăng nhập
 class LoginView(View):
@@ -63,7 +64,9 @@ def dashboard(request):
     if request.user.is_authenticated:
         movies = Movie.objects.all().order_by('?')
         lang = Movie.objects.values('lang').distinct()
-        genre = Movie.objects.values('genre').distinct()
+        # genre = Movie.objects.values('genre').distinct()
+        genre = Movie.objects.order_by('genre').distinct('genre').values_list('genre', flat=True)
+
         paginator = Paginator(movies, 18)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -246,21 +249,66 @@ def deleteReview(request, movieid, viewerid):
         return redirect('/login/')    
 
 
+# def search(request):
+#     query = request.GET.get('q')
+#     genre = request.GET.get('genre') # lấy giá trị của tham số genre từ URL
+#     Movies = Movie.objects.all()
+
+#     if query:
+#         Movies = Movies.filter(title__icontains=query)
+
+#     if genre:
+#         Movies = Movies.filter(genre__icontains=genre)
+
+#     paginator = Paginator(Movies, 18)
+#     page_number = request.GET.get('page')
+
+#     if page_number is None:
+#         page_number = 1
+
+#     page_obj = paginator.get_page(page_number)
+
+#     context = {'page_obj': page_obj, 'query': query, 'genre': genre}
+#     return render(request, 'myapp/search.html', context)
+
+
+
 def search(request):
     query = request.GET.get('q')
-    # Tìm kiếm phim theo tên
-    Movies = Movie.objects.filter(title__icontains=query)
+
+    # Tìm kiếm theo language
+    lang = request.GET.get('lang')
+
+    # Tìm kiếm theo genre
+    genre = request.GET.get('genre')
+
+    # Danh sách các thể loại phim hợp lệ
+    valid_genres = ["action", "science fiction", "horror", "thriller", "romance", "crime",
+                    "adventure", "war", "drama", "fantasy", "comedy", "musical",
+                    "documentary", "history", "mystery", "music", "animation",
+                    "tv movie", "family", "western"]
     
-    paginator = Paginator(Movies, 18)
-    page_number = request.GET.get('page')
-    
-    if page_number is None:
-        # Nếu page_number không tồn tại, đặt giá trị mặc định là 1
-        page_number = 1
-    
+
+    # Kiểm tra genre có hợp lệ hay không, nếu không, gán cho nó giá trị None
+    if genre and genre.lower() not in valid_genres:
+        genre = None
+
+    movies = Movie.objects.all()
+
+    if lang:
+        movies = movies.filter(lang__iexact=lang)
+
+    if query:
+        movies = movies.filter(title__icontains=query)
+
+    if genre:
+        movies = movies.filter(genre__icontains=genre)
+
+    paginator = Paginator(movies, 18)
+    page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
-    
-    context = {'page_obj': page_obj, 'query': query}
+
+    context = {'page_obj': page_obj, 'query': query, 'genre': genre, 'lang': lang}
     return render(request, 'myapp/search.html', context)
 
 

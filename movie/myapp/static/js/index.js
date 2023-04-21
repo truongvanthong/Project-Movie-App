@@ -1,4 +1,4 @@
-// Tìm kiếm theo thể loại phim
+// // Tìm kiếm theo thể loại phim
 function movie_search(type) {
     console.log('clicked');
     movies = document.getElementsByClassName('movie-selector')
@@ -13,6 +13,7 @@ function movie_search(type) {
         }
     }
 }
+
 
 function movie_search_by_lang(type) {
     movies = document.getElementsByClassName('movie-selector')
@@ -49,8 +50,6 @@ function searchMovieByName() {
         }
     }
 }
-
-
 
 
 $('#moviebar').keyup(searchMovieByName);

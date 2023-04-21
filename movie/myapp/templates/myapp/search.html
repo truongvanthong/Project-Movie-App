@@ -1,4 +1,120 @@
-{% extends 'myapp/base.html' %} {%block content %} {% if page_obj %}
+{% extends 'myapp/base.html' %} {%block content %} 
+    <div class="row" id="topper">
+        <div class="col col-md-4">
+            <h2 style="font-family: 'Lobster', cursive;">Welcome {{user.last_name}}</h2>
+        </div>
+        <div class="col-md-2 browse text-center" style="color: orange; font-weight: bold; font-size: 20px;">
+            Browse by Category
+        </div>
+
+        <style>
+            .dropdown-menu a {
+                font-weight: bold;
+            }
+            
+            .dropdown-menu a:hover {
+                background-color: #f84f07;
+                color: #fff;
+                border-radius: 10px;
+            }
+        </style>
+        <div class="col-md-2 listing">
+            <div class="dropdown" style="display: flex; justify-content:center;">
+                <button class="dropdown-toggle drop-style" type="button" id="genreselect" data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if not genre and not q %}
+                        All Genre
+                    {% elif genre %}
+                        {{ genre|title }}
+                    {% else %}
+                        Genre
+                    {% endif %}
+        </button>
+        <ul class="dropdown-menu" style="background-color: rgb(0, 0, 0); overflow-y: scroll; max-height: 400px;" id="genre-dropdown-menu" aria-labelledby="genreselect">
+            <li><a class="dropdown-item" href="{% url 'search' %}?genre=&q=">All</a></li>
+            <li><a class="dropdown-item" href="{% url 'search' %}?genre=Action">Action</a></li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Adventure">Adventure</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Animation</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Comedy">Comedy</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Crime">Crime</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Documentary">Documentary</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Drama">Drama</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Family">Family</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Fantasy">Fantasy</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=History">History</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Horror">Horror</a></li>
+            <li><a class=" dropdown-item " href="{% url 'search' %}?genre=Music">Music</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Mystery">Mystery</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Romance">Romance</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Science Fiction">Science Fiction</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=TV Movie">TV Movie</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Thriller</a></li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">War</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">Family</a> </li>
+            <li><a class="dropdown-item " href="{% url 'search' %}?genre=western&">Western</a>
+        </ul>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $("#genre-dropdown-menu a").click(function() {
+                    var genre = $(this).attr("href").split("=")[1].replace("&q", "");
+                    $("#genreselect").text($(this).text());
+                    $("#genreselect").val(genre);
+                    $("#search-form").submit();
+                });
+            });
+        </script>
+    
+        <div class="col-md-2 listing">
+            <!-- language -->
+            <div class="dropdown" style="display: flex; justify-content:center;">
+            <button class="dropdown-toggle drop-style" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
+                {% if not lang and not q %}
+                    All Language
+                {% elif lang %}
+                    {{ lang|title }}
+                {% else %}
+                    Language
+                {% endif %}
+            </button>
+            <ul class="dropdown-menu" style="background-color: black;overflow-y: scroll; max-height: 400px;" id="language-dropdown-menu" aria-labelledby="language">
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=&q=">All</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=English">English</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=Vietnamese">Vietnamese</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=Hindi">Hindi</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=Telugu">Telugu</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=Tamil">Tamil</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=Kannada">Kannada</a></li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $("#language-dropdown-menu a").click(function() {
+                    var lang = $(this).attr("href").split("=")[1].replace("&q", "");
+                    $("#language").text($(this).text());
+                    $("#language").val(lang);
+                    $("#search-form").submit();
+                });
+            });
+        </script>
+    
+        <!-- <div class="col-md-2 listing ">
+            <div class="dropdown " style="display: flex; justify-content:center; ">
+                <button class=" dropdown-toggle drop-style " type="button " id="movyear " data-bs-toggle="dropdown " aria-expanded="false ">
+            Year
+        </button>
+                <ul class="dropdown-menu " style="background-color: rgb(63, 28, 87); " aria-labelledby="movyear ">
+                    <li><a class="dropdown-item " href="# ">Action</a></li>
+                    <li><a class="dropdown-item " href="# ">Another action</a></li>
+                    <li><a class="dropdown-item " href="# ">Something else here</a></li>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+
+
+{% if page_obj %}
 <div class="container-fluid">
     <div class="row mb-4 mt-2">
         {% for movie in page_obj %}
@@ -84,20 +200,57 @@
     }
 </style>
 
-
 <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-          <a href="?q={{ query }}&page=1">&laquo; First</a>
-          <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
-        
-        <span class="current-page">
-          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span> {% if page_obj.has_next %}
-    <a href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next</a>
-    <a href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}">Last &raquo;</a> {% endif %}
-    </span>
-</div>
+  <span class="step-links">
+    {% if request.GET.q %}
+    {% if page_obj.has_previous %}
+    <a href="?q={{ request.GET.q }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page=1">&laquo; First</a>
+    <a href="?q={{ request.GET.q }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
 
-{% endif %} {% endblock%}
+    <span class="current-page lang">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?q={{ request.GET.q }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?q={{ request.GET.q }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+
+    {% elif request.GET.genre %}
+    {% if page_obj.has_previous %}
+    <a href="?genre={{ request.GET.genre }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page=1">&laquo; First</a>
+    <a href="?genre={{ request.GET.genre }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span class="current-page lang">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?genre={{ request.GET.genre }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?genre={{ request.GET.genre }}&amp;lang={{ request.GET.lang|default:'' }}&amp;page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+
+    {% elif request.GET.lang %}
+    {% if page_obj.has_previous %}
+    <a href="?lang={{ request.GET.lang }}&amp;page=1">&laquo; First</a>
+    <a href="?lang={{ request.GET.lang }}&amp;page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span class="current-page lang">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?lang={{ request.GET.lang }}&amp;page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?lang={{ request.GET.lang }}&amp;page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+
+    {% endif %}
+  </span>
+</div>
+{% endif %}
+
+
+{% endblock%}
