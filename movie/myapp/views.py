@@ -63,14 +63,10 @@ class LoginView(View):
 def dashboard(request):
     if request.user.is_authenticated:
         movies = Movie.objects.all().order_by('?')
-        lang = Movie.objects.values('lang').distinct()
-        # genre = Movie.objects.values('genre').distinct()
-        genre = Movie.objects.order_by('genre').distinct('genre').values_list('genre', flat=True)
-
         paginator = Paginator(movies, 18)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, "myapp/dashboard.html",{'user':request.user ,  'page_obj':page_obj, 'lang':lang, 'genre':genre})
+        return render(request, "myapp/dashboard.html",{'user':request.user ,  'page_obj':page_obj})
     else:
         return redirect('/login/')
     

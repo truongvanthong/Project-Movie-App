@@ -26,6 +26,11 @@
                 <p class="sky-fg">Release Date: <span style="color:yellow">{{movie.year}}</span></p>
                 <p class="sky-fg">Language: <span style="color:yellow">{{movie.lang}}</span></p>
                 <p class="sky-fg">Running time: <span style="color:yellow">{{movie.runtime}} min</span></p>
+
+                <!-- <p class="sky-fg">Budget: <span style="color:yellow">1$</span> | Revenue: <span style="color:yellow">2$</span></p> -->
+
+
+
                 <h4 style="font-family: 'Arial Narrow Bold', sans-serif; color: white;">
                     <i class="bi bi-filter-right" style="margin-right: 3px; color: white;"></i> Overview:
                 </h4>
@@ -155,6 +160,23 @@
                     {% endfor %}
                     <p style="margin-top: 15px; "><a href="{% url 'reviews' movie.id %} " target="_blank " style="text-decoration:none ">Read All</a></p>
                 </div>
+            </div>
+            <div class = "col-md-3">
+                <!-- Budget -->
+                <div class="budget white-fg">
+                    <h5 style="color: rgb(255, 255, 255); ">Budget</h5>
+                    <!-- <hr class="white-fg "> -->
+                    <p style="color: rgb(255, 255, 255); "><span style="color:yellow">${{movie.budget}}</span></p>
+                </div>
+                <!-- Revenue -->
+                <div class="revenue white-fg">
+                    <h5 style="color: rgb(255, 255, 255); ">Revenue</h5>
+                    <!-- <hr class="white-fg "> -->
+                    <p style="color: rgb(255, 255, 255); "><span style="color:yellow">${{movie.revenue}}</span></p>
+
+
+                <!-- <p class="sky-fg">Budget: <span style="color:yellow">1$</span> | Revenue: <span style="color:yellow">2$</span></p> -->
+
             </div>
         </div>
 

@@ -9,6 +9,6 @@ class DataObject():
     def __init__(self):
         pass
 
-    def create(self, title, year, genre, plot, lang ,poster, rating, trailor, runtime):
+    def create(self, title, year, genre, plot, lang ,poster, rating, trailor, runtime, budget, revenue):
         # Ta sẽ insert data bằng phương thức create
-        return Movie.objects.create(title=title, year=year, genre=genre, plot=plot, lang=lang ,poster=poster, rating=rating, trailor=trailor, runtime=runtime)
+        return Movie.objects.create(title=title, year=year, genre=genre, plot=plot, lang=lang ,poster=poster, rating=rating, trailor=trailor, runtime=runtime, budget=budget, revenue=revenue)

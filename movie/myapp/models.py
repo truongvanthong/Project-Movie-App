@@ -17,6 +17,8 @@ class Movie(models.Model):
     rating = models.DecimalField(decimal_places = 2, null = True, blank = True, max_digits=6)
     trailor = EmbedVideoField(null = True)
     runtime = models.IntegerField(null = True)
+    budget = models.IntegerField(null = True)
+    revenue = models.IntegerField(null = True)
     
 # Movie model
 class ViewerMovie(models.Model):

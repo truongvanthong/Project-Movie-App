@@ -19,7 +19,9 @@ def add_data_to_list(df, data):
                 poster=row['poster'],
                 rating=row['rating'],
                 trailor=row['trailer'],
-                runtime = row['runtime'])),
+                runtime = row['runtime'],
+                budget=row['budget'],
+                revenue=row['revenue'])),
         except Exception as e:
             print(f"Error adding {row['title']} to data: {e}")
     return data

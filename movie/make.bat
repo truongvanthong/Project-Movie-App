@@ -3,4 +3,4 @@ python manage.py makemigrations
 
 python manage.py migrate
 
-python manage.py createsuperuser
+@REM python manage.py createsuperuser
