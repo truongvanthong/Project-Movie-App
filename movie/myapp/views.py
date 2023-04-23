@@ -185,8 +185,8 @@ def watched(request, viewerid):
             genre = item[3]
             plot = item[4]
             lang = item[5]
-            poster = item[5]
-            rating = item[6]
+            poster = item[6]
+            rating = item[7]
             movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'poster':poster, 'lang':lang,'rating':rating})
         return render(request, 'myapp/watched.html',{'watchlist':movies,'userid':viewerid})
     else:
@@ -207,8 +207,8 @@ def favourites(request, viewerid):
             genre = item[3]
             plot = item[4]
             lang = item[5]
-            poster = item[5]
-            rating = item[6]
+            poster = item[6]
+            rating = item[7]
             movies.append({'id' : id, 'title':title,'genre':genre, 'plot':plot[:100]+'...', 'lang':lang, 'poster':poster,'rating':rating})
         return render(request, 'myapp/favourite.html', {'favourites':movies,'userid':viewerid})
     else:

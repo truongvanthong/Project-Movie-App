@@ -70,7 +70,7 @@
     </style>
 </head>
 
-<body style="background-color: rgba(0,0,0,0.5);">
+<body style="background-color: rgb(40, 37, 37);">
     <div class="rv-header">
         <p class="text-center"><span>Movie App</span> | Reviews</p>
     </div>
@@ -83,14 +83,14 @@
                     <div class='movie-rv'>
                         <img class="ml-2" src="{{movie.poster}}" alt="image" width="60vh" height="90vh">
                         <label>
-                            <div style="color: cyan;">{{movie.title}}</div>
+                            <div style="color: yellow;">{{movie.title}}</div>
                             <hr>
                             <span style="color: yellow;"><i class="bi bi-calendar-fill m-r" style="color: chartreuse;"></i> {{movie.year}}</span>
                         </label>
                     </div>
                     <div style="display: flex; justify-content:space-between">
-                        <b style="font-size: 1.9em; color:cyan">Reviews</b> {% if movie.rating %}
-                        <b> <i class="bi bi-star-fill m-r" style="line-height: 0.5; font-size: 2rem; color: gold"></i>
+                        <b style="font-size: 1.9em; color:yellow">Reviews</b> {% if movie.rating %}
+                        <b style="color: beige;"> <i class="bi bi-star-fill m-r" style="line-height: 0.5; font-size: 2rem; color: gold"></i>
                             {{movie.rating}}/10
                         </b> {% else %}
                         <b> No ratings</b> {% endif %}

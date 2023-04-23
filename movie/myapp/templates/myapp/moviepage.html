@@ -8,7 +8,7 @@
             <div class="col-md-5">
                 <div class="d-flex" style="justify-content: center;">
                     <div class="thumbnail">
-                        <img src="{{movie.poster}}" alt="image" class='img img-responsive' height="400vh" width="300vw">
+                        <img src="{{movie.poster}}" alt="image" class='img img-responsive' height="500vh" width="300vw" style="border-radius: 5%;">
                     </div>
                 </div>
             </div>
@@ -25,11 +25,8 @@
                 </p>
                 <p class="sky-fg">Release Date: <span style="color:yellow">{{movie.year}}</span></p>
                 <p class="sky-fg">Language: <span style="color:yellow">{{movie.lang}}</span></p>
-                <p class="sky-fg">Running time: <span style="color:yellow">{{movie.runtime}} min</span></p>
-
-                <!-- <p class="sky-fg">Budget: <span style="color:yellow">1$</span> | Revenue: <span style="color:yellow">2$</span></p> -->
-
-
+                <p class="sky-fg">Running time: <span style="color:yellow">{{movie.runtime}}</span></p>
+                <p class="sky-fg">Budget: <span style="color:yellow">${{movie.budget}}</span> ✪ Revenue: <span style="color:yellow">${{movie.revenue}}</span></p>
 
                 <h4 style="font-family: 'Arial Narrow Bold', sans-serif; color: white;">
                     <i class="bi bi-filter-right" style="margin-right: 3px; color: white;"></i> Overview:
@@ -46,6 +43,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-9">
@@ -89,9 +87,9 @@
             {% endif %}
             <div>
                 {% if vm.rating %}
-                <p class='text-center' id="you-rated">You rated : {{vm.rating}}</p>
+                <p class='text-center' id="you-rated" style="color: yellow;">You rated : {{vm.rating}}</p>
                 {% else %}
-                <p class='text-center' id="you-rated"></p>
+                <p class='text-center' id="you-rated" style="color: yellow;"></p>
                 {% endif %}
             </div>
         </div>
@@ -125,8 +123,8 @@
         <div class="row d-flex" style="justify-content: center;">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="reviewbox" class="form-label">Write A Review</label>
-                    <textarea class="form-control" id="reviewbox" rows="3" style="background-color: rgb(33, 7, 58); color:yellow"></textarea>
+                    <label for="reviewbox" class="form-label">Write A Review✍</label>
+                    <textarea class="form-control" id="reviewbox" rows="3" style="background-color: rgb(33, 7, 58); color:yellow" placeholder="Click here to write your review..."></textarea>
                 </div>
                 <button id="postreview" class="btn btn-light btn-sm rvbtn">Submit Review</button>
                 <button id="deletereview" class="btn btn-danger btn-sm rvbtn"><i class="bi bi-trash m-r"></i>Delete Review</button> {% if vm.review %}
@@ -161,23 +159,7 @@
                     <p style="margin-top: 15px; "><a href="{% url 'reviews' movie.id %} " target="_blank " style="text-decoration:none ">Read All</a></p>
                 </div>
             </div>
-            <div class = "col-md-3">
-                <!-- Budget -->
-                <div class="budget white-fg">
-                    <h5 style="color: rgb(255, 255, 255); ">Budget</h5>
-                    <!-- <hr class="white-fg "> -->
-                    <p style="color: rgb(255, 255, 255); "><span style="color:yellow">${{movie.budget}}</span></p>
-                </div>
-                <!-- Revenue -->
-                <div class="revenue white-fg">
-                    <h5 style="color: rgb(255, 255, 255); ">Revenue</h5>
-                    <!-- <hr class="white-fg "> -->
-                    <p style="color: rgb(255, 255, 255); "><span style="color:yellow">${{movie.revenue}}</span></p>
 
-
-                <!-- <p class="sky-fg">Budget: <span style="color:yellow">1$</span> | Revenue: <span style="color:yellow">2$</span></p> -->
-
-            </div>
         </div>
 
         <div class="row ">
@@ -221,6 +203,7 @@
 
     </div>
 </div>
+
 <!-- <footer id="footer ">
     <p><label>Movie Manifest</label><span>Site Settings</span><span>legal</span><span>Privacy Policy</span><span>Contact
             Us</span></p>

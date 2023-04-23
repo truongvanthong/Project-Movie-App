@@ -8,9 +8,7 @@ from faker import Faker
 from datetime import datetime
 from myapp.models import ViewerMovie, Viewer, Movie
 
-# fake = Faker('vi_VN')  # Sử dụng ngôn ngữ tiếng Việt
 fake = Faker('en_US')
-
 Faker.seed(0)  # Đặt seed cho các giá trị ngẫu nhiên
 
 def create_fake_viewers(num_viewers):
@@ -57,11 +55,20 @@ def create_fake_viewer_movie(num_records):
             viewer_movie.save()
 
 
-# Tạo người xem giả
-print("Creating fake viewers...")
-create_fake_viewers(50)
-print("Done creating fake viewers")
-# Tạo bản ghi giả cho ViewerMovie
-print("Creating fake viewer movie...")
-create_fake_viewer_movie(1000)
-print("Done creating fake viewer movie")
+# # Tạo người xem giả
+# print("Creating fake viewers...")
+# create_fake_viewers(5)
+# print("Done creating fake viewers")
+# # Tạo bản ghi giả cho ViewerMovie
+# print("Creating fake viewer movie...")
+# create_fake_viewer_movie(10)
+# print("Done creating fake viewer movie")
+
+# Tạo vòng for hiện tqdm chạy Tạo nguoi xem giả
+from tqdm import tqdm
+for _ in tqdm(range(10)):
+    # tạo người xem giả
+    create_fake_viewers(10)
+    # tạo bản ghi giả cho ViewerMovie
+    create_fake_viewer_movie(500)
+    

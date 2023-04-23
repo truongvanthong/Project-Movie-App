@@ -1,12 +1,52 @@
 {% extends 'myapp/base.html' %} {%block content %} 
-    <div class="row" id="topper">
-        <div class="col col-md-4">
-            <h2 style="font-family: 'Lobster', cursive;">Welcome {{user.last_name}}</h2>
-        </div>
-        <div class="col-md-2 browse text-center" style="color: orange; font-weight: bold; font-size: 20px;">
-            Browse by Category
-        </div>
+<div class="white-fg">
+    <style>
+        .search-container {
+        width: 100%; /* Điều chỉnh chiều rộng tùy ý */
+        margin: 0 auto; /* Để canh giữa */
+        padding-top: 10px;
+        /* padding-bottom: 10px; */
+        padding-left: 120px;
+        }
 
+        .search-form {
+        width: 120%;
+        height: 40px;
+        display: flex;
+        justify-content: left;
+        }
+
+        .input-group {
+        width: 85%;
+        }
+
+        .form-control {
+        width: 100%;
+        }
+    </style> 
+
+    <div class="row" id="topper">
+        <div class="col col-md-3">
+            <h2 style="font-family: 'Lobster', cursive; font-size: 40px; padding-top: 10px;">Welcome {{user.last_name}}</h2>
+        </div>        
+        <div class="col col-md-5">
+            <div class="search-container browse" style="background-color: rgb(2, 59, 59);">
+                <form action="{% url 'search' %}" method="get" class="search-form">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search Movie By Name" name="q">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="topper">
+        <h3 style="color: #FFC200; text-align: center;margin-top:-7px ;margin-bottom: -2px;">Browse by Category</h3>
+    </div>
+    <div class="row" id="topper">
+        <div class="col-md-4"></div>
         <style>
             .dropdown-menu a {
                 font-weight: bold;
@@ -29,29 +69,29 @@
                         Genre
                     {% endif %}
         </button>
-        <ul class="dropdown-menu" style="background-color: rgb(0, 0, 0); overflow-y: scroll; max-height: 400px;" id="genre-dropdown-menu" aria-labelledby="genreselect">
-            <li><a class="dropdown-item" href="{% url 'search' %}?genre=&q=">All</a></li>
-            <li><a class="dropdown-item" href="{% url 'search' %}?genre=Action">Action</a></li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Adventure">Adventure</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Animation</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Comedy">Comedy</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Crime">Crime</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Documentary">Documentary</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Drama">Drama</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Family">Family</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Fantasy">Fantasy</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=History">History</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Horror">Horror</a></li>
-            <li><a class=" dropdown-item " href="{% url 'search' %}?genre=Music">Music</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Mystery">Mystery</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Romance">Romance</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Science Fiction">Science Fiction</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=TV Movie">TV Movie</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Thriller</a></li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">War</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">Family</a> </li>
-            <li><a class="dropdown-item " href="{% url 'search' %}?genre=western&">Western</a>
-        </ul>
+                <ul class="dropdown-menu" style="background-color: rgb(0, 0, 0); overflow-y: scroll; max-height: 400px;" id="genre-dropdown-menu" aria-labelledby="genreselect">
+                    <li><a class="dropdown-item" href="{% url 'search' %}?genre=&q=">All</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search' %}?genre=Action">Action</a></li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Adventure">Adventure</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Animation</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Comedy">Comedy</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Crime">Crime</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Documentary">Documentary</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Drama">Drama</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Family">Family</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Fantasy">Fantasy</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=History">History</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Horror">Horror</a></li>
+                    <li><a class=" dropdown-item " href="{% url 'search' %}?genre=Music">Music</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Mystery">Mystery</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Romance">Romance</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Science Fiction">Science Fiction</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=TV Movie">TV Movie</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=Animation">Thriller</a></li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">War</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=War">Family</a> </li>
+                    <li><a class="dropdown-item " href="{% url 'search' %}?genre=western&">Western</a>
+                </ul>
             </div>
         </div>
         <script>
@@ -66,7 +106,6 @@
         </script>
     
         <div class="col-md-2 listing">
-            <!-- language -->
             <div class="dropdown" style="display: flex; justify-content:center;">
             <button class="dropdown-toggle drop-style" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
                 {% if not lang and not q %}
@@ -80,12 +119,14 @@
             <ul class="dropdown-menu" style="background-color: black;overflow-y: scroll; max-height: 400px;" id="language-dropdown-menu" aria-labelledby="language">
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=&q=">All</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=English">English</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=French">French</a></li>
+                    <li><a class="dropdown-item" href="{% url 'search'%}?lang=German">German</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Vietnamese">Vietnamese</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Hindi">Hindi</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Telugu">Telugu</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Tamil">Tamil</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Kannada">Kannada</a></li>
-                </ul>
+            </ul>
             </div>
         </div>
         <script>
@@ -97,20 +138,7 @@
                     $("#search-form").submit();
                 });
             });
-        </script>
-    
-        <!-- <div class="col-md-2 listing ">
-            <div class="dropdown " style="display: flex; justify-content:center; ">
-                <button class=" dropdown-toggle drop-style " type="button " id="movyear " data-bs-toggle="dropdown " aria-expanded="false ">
-            Year
-        </button>
-                <ul class="dropdown-menu " style="background-color: rgb(63, 28, 87); " aria-labelledby="movyear ">
-                    <li><a class="dropdown-item " href="# ">Action</a></li>
-                    <li><a class="dropdown-item " href="# ">Another action</a></li>
-                    <li><a class="dropdown-item " href="# ">Something else here</a></li>
-                </ul>
-            </div>
-        </div> -->
+        </script>      
     </div>
 
 
@@ -142,7 +170,7 @@
 </div>
 {% else %}
 <p>No products found.</p>
-{% endif %} {% if page_obj.has_other_pages %}
+{% endif %} 
 <style>
     .pagination {
         display: flex;
@@ -199,7 +227,7 @@
         transform: scale(1.2);
     }
 </style>
-
+{% if page_obj.has_other_pages %}
 <div class="pagination">
   <span class="step-links">
     {% if request.GET.q %}

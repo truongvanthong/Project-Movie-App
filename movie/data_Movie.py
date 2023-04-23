@@ -11,26 +11,27 @@ def add_data_to_list(df, data):
         try:
             # Tạo object và thêm vào list data
             data.append(DataObject().create(
-                title=row['title'],
-                year=row['year'],
-                genre=row['genre'],
-                plot=row['plot'],
-                lang=row['language'], 
-                poster=row['poster'],
-                rating=row['rating'],
-                trailor=row['trailer'],
-                runtime = row['runtime'],
-                budget=row['budget'],
-                revenue=row['revenue'])),
+                title=row['Title'],
+                year=row['Year'],
+                genre=row['Genre'],
+                plot=row['Overview'],
+                lang=row['Language'], 
+                poster=row['Poster'],
+                rating=row['Rating'],
+                trailor=row['Trailer'],
+                runtime = row['Runtime'],
+                budget = row['Budget'],
+                revenue = row['Revenue']
+            ))
         except Exception as e:
-            print(f"Error adding {row['title']} to data: {e}")
+            print(f"Error adding {row['Title']} to data: {e}")
     return data
 
 if __name__ == "__main__":
     
      # -------------------------
     # đọc dữ liệu từ file csv
-    df = pd.read_csv('film_DONE1.csv')
+    df = pd.read_csv('film_DONE_MAIN.csv')
     
     # chia dữ liệu thành hai DataFrame
     df_1 = df[:5000]
