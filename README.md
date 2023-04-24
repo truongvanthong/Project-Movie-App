@@ -13,8 +13,10 @@ Technologies used : - Django, HTML, CSS, Javascript, Ajax, Bootstrap
 ![image](https://user-images.githubusercontent.com/82353328/233851687-d2f47f48-f062-4aee-8761-59bd1db9e339.png)
 
 * Dashboard
-![image](https://user-images.githubusercontent.com/82353328/233851894-b4d6b73b-9f56-497f-af93-ea7b18c8fcab.png)
-![image](https://user-images.githubusercontent.com/82353328/233851965-7c2764f3-c96a-4eef-9b92-461a77898d56.png)
+![image](https://user-images.githubusercontent.com/82353328/233965281-55c7d1b7-2a57-4569-a842-2c0303a032ce.png)
+![image](https://user-images.githubusercontent.com/82353328/233965386-9b6eac13-5383-4067-bd64-8ba29620ba87.png)
+![image](https://user-images.githubusercontent.com/82353328/233965439-19b5f98e-9d3d-4e33-8dbc-fc5504d84016.png)
+
 
 
 * Movie Page
