@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'movie.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Movie_TMDB',
+        'NAME': 'DB_Movie',
         'USER': 'postgres',
         'PASSWORD': 'thong',
         'HOST': 'localhost',

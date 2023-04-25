@@ -23,10 +23,11 @@
                     <i class="bi bi-people-fill" style="margin-left:30px; line-height: 0.5; font-size: 2rem; color: gold"></i>
                     <b style="font-size: 1.4em; color: #ffffff;">{{no_of_ratings}}</b>
                 </p>
-                <p class="sky-fg">Release Date: <span style="color:yellow">{{movie.year}}</span></p>
+                <p class="sky-fg">Release Year: <span style="color:yellow">{{movie.year}}</span></p>
                 <p class="sky-fg">Language: <span style="color:yellow">{{movie.lang}}</span></p>
                 <p class="sky-fg">Running time: <span style="color:yellow">{{movie.runtime}}</span></p>
                 <p class="sky-fg">Budget: <span style="color:yellow">${{movie.budget}}</span> ✪ Revenue: <span style="color:yellow">${{movie.revenue}}</span></p>
+                <p class="sky-fg">Director: <span style="color:yellow">{{movie.director}}</span></p>
 
                 <h4 style="font-family: 'Arial Narrow Bold', sans-serif; color: white;">
                     <i class="bi bi-filter-right" style="margin-right: 3px; color: white;"></i> Overview:
@@ -43,7 +44,86 @@
                 </div>
             </div>
         </div>
-        
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
+                <hr style="color: palegreen;">
+            </div>
+        </div>
+        <h3 class="text-center white-fg" style="color: aquamarine;">Director</h3>
+        <style>
+            .card {
+                background-color: black;
+                
+            }
+            .card-title {
+                color: white;
+                font-weight: bold;
+                text-align: center;
+            }
+            .card-img-top {
+                object-fit: cover;
+            }
+            </style>
+            <div style="overflow-x: auto; white-space: nowrap;">
+                <div class="row white-fg" style="justify-content: center">
+                    {% for director, img in movie.director_and_img %}
+                        <div class="col-md-2">
+                            <div class="card mb-2">
+                                <img src="{{img}}" alt="{{director}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{director}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <style>
+                .card {
+                    background-color: black;
+                    max-width: 200px;
+                }
+                .card-title {
+                    color: white;
+                    font-weight: bold;
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .card-img-top {
+                    object-fit: cover;
+                }
+                .col-md-2 {
+                    flex-shrink: 0;
+                }
+            </style>
+            
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-9">
+                    <hr style="color: palegreen;">
+                </div>
+            </div>
+            <h3 class="text-center white-fg" style="color: aquamarine;">Top Billed Cast</h3>
+            <div style="overflow-x: auto; white-space: nowrap;">
+                <div class="row white-fg" style="justify-content: center">
+                    {% for top_cast, img in movie.top_cast_and_img %}
+                        <div class="col-md-2">
+                            <div class="card mb-2">
+                                <img src="{{img}}" alt="{{top_cast}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{top_cast}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-9">
