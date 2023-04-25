@@ -25,11 +25,11 @@ class Movie(models.Model):
     rating = models.DecimalField(decimal_places = 1, null = True, blank = True, max_digits=6) # Rating
     trailor = EmbedVideoField(null = True) # Trailor
     runtime = models.CharField(max_length=100, null = True) # Runtime 
-    budget = models.CharField(max_length=100, null = True) # Budget
-    revenue = models.CharField(max_length=100, null = True) # Revenue
-    director = models.CharField(max_length=100, null = True) # Director
-    director_img = models.CharField(max_length=1000, null = True) # Link director
-    top_cast = models.CharField(max_length=100, null = True) # Top cast
+    budget = models.CharField(max_length=1000, null = True) # Budget
+    revenue = models.CharField(max_length=1000, null = True) # Revenue
+    director = models.CharField(max_length=2000, null = True) # Director
+    director_img = models.CharField(max_length=2000, null = True) # Link director
+    top_cast = models.CharField(max_length=1000, null = True) # Top cast
     top_cast_img = models.CharField(max_length=1000, null = True) # Link top cast
 
     def director_and_img(self):

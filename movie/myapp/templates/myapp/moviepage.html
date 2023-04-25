@@ -52,35 +52,21 @@
             </div>
         </div>
         <h3 class="text-center white-fg" style="color: aquamarine;">Director</h3>
-        <style>
-            .card {
-                background-color: black;
-                
-            }
-            .card-title {
-                color: white;
-                font-weight: bold;
-                text-align: center;
-            }
-            .card-img-top {
-                object-fit: cover;
-            }
-            </style>
-            <div style="overflow-x: auto; white-space: nowrap;">
-                <div class="row white-fg" style="justify-content: center">
-                    {% for director, img in movie.director_and_img %}
-                        <div class="col-md-2">
-                            <div class="card mb-2">
-                                <img src="{{img}}" alt="{{director}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{director}}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+        <div style="overflow-x: auto; justify-content: center" >
+            <div class="d-flex flex-nowrap" style="width: 100%;">
+                {% for director, img in movie.director_and_img %}
+                <div class="col-md-2">
+                    <div class="card mb-2">
+                    <img src="{{img}}" alt="{{director}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{director}}</h5>
+                    </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-
+            </div>
+        
             <style>
                 .card {
                     background-color: black;
