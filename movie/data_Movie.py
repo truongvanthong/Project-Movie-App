@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
      # -------------------------
     # đọc dữ liệu từ file csv
-    df = pd.read_csv('DataBase.csv')
+    df = pd.read_csv('output_MAIN.csv')
     
     # chia dữ liệu thành hai DataFrame
     df_1 = df[:5000]
