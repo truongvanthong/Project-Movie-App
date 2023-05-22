@@ -4,13 +4,15 @@ Technologies used : - Django, HTML, CSS, Javascript, Ajax, Bootstrap
 ## Screenshots of the application
 
 * Home page
-![image](https://user-images.githubusercontent.com/82353328/233851531-c426b516-5d67-40c8-b948-4147cfc884e6.png)
+![image](https://github.com/truongvanthong/Project-Movie-App/assets/82353328/f4bd149d-9b31-435c-8f75-ad2db77d98e1)
+![image](https://github.com/truongvanthong/Project-Movie-App/assets/82353328/96da9ae3-3a5c-42c3-b880-027e38582f5f)
+![image](https://github.com/truongvanthong/Project-Movie-App/assets/82353328/af8ad579-c7ce-4ed5-978f-dde86e4c7c8d)
 
 * Signup Page
-![image](https://user-images.githubusercontent.com/82353328/233851613-7334f411-0fbe-4f5e-b3eb-9aaff66e1b3e.png)
+![image](https://github.com/truongvanthong/Project-Movie-App/assets/82353328/69add950-d12c-4c66-a250-e2d98835b104)
 
 * Login Page
-![image](https://user-images.githubusercontent.com/82353328/233851687-d2f47f48-f062-4aee-8761-59bd1db9e339.png)
+![image](https://github.com/truongvanthong/Project-Movie-App/assets/82353328/420249c8-0f0e-49ce-849c-a63a717de420)
 
 * Dashboard
 ![image](https://user-images.githubusercontent.com/82353328/233965281-55c7d1b7-2a57-4569-a842-2c0303a032ce.png)
@@ -39,13 +41,13 @@ Technologies used : - Django, HTML, CSS, Javascript, Ajax, Bootstrap
 `windows`
 Chạy file
 ```bash
- > run_venvXinstall_thuvien.bat
+run_venvXinstall_thuvien.bat
  ```
 `MacOS`
 ```bash
-> python3 -m venv venv
-> source venv/bin/activate
-> pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 
@@ -57,7 +59,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Movie_DB',                      
         'USER': 'postgres',
-        'PASSWORD': 'thong',
+        'PASSWORD': 'thong', #Cài đặt pass
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -74,24 +76,28 @@ Trong đó:
 
 Bạn có thể sửa file **settings.py** trong project của mình để thêm các thông tin kết nối tới database của bạn. Lưu ý rằng, bạn cần phải cài đặt driver tương ứng cho database của mình (ví dụ: psycopg2 cho PostgreSQL) để Django có thể kết nối và thao tác với database.
 
-## Bước 4: Cài đặt các package, thêm dữ liệu vào database và chạy server
+## Bước 3: Cài đặt các package, thêm dữ liệu vào database và chạy server
+`Ta vào thư mục movie:`
 ```bash
-> python manage.py makemigrations
-> python manage.py migrate
+cd movie
 ```
 
-`Tạo admin`
+`Chạy lệnh này để cài package:`
 ```bash
-> python manage.py createsuperuser
+make.bat
 ```
 
 `Mọi người, hãy chạy lệnh này để điền vào cơ sở dữ liệu.`
 ```bash
-> python data_Movie.py
+data_Movie.bat
 ```
 
-### Sử dụng file `run.bat`
-
-Bạn có thể sử dụng file `run.bat` bằng cách chạy lệnh command prompt:
-`run.bat`
-Sau khi chạy xong, bạn có thể truy cập trang web của mình trên trình duyệt với địa chỉ `http://127.0.0.1:8000/`.
+## Bước 4: Chạy chương trình
+`Sử dụng file` **run.bat**
+```bash
+run.bat
+```
+Sau khi chạy xong, bạn có thể truy cập trang web của mình trên trình duyệt với địa chỉ:
+```bash
+http://127.0.0.1:8000/
+```
