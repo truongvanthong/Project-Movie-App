@@ -55,61 +55,64 @@
         <div style="overflow-x: auto; justify-content: center">
             <div class="d-flex flex-nowrap" style="width: 100%; justify-content: center;">
                 {% for director, img in movie.director_and_img %}
-                <div class="col-md-2" >
+                <div class="col-md-2">
                     <div class="card mb-2">
-                    <img src="{{img}}" alt="{{director}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{director}}</h5>
-                    </div>
+                        <img src="{{img}}" alt="{{director}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{director}}</h5>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            </div>
-        
-            <style>
-                .card {
-                    background-color: black;
-                    max-width: 200px;
-                }
-                .card-title {
-                    color: white;
-                    font-weight: bold;
-                    text-align: center;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                }
-                .card-img-top {
-                    object-fit: cover;
-                }
-                .col-md-2 {
-                    flex-shrink: 0;
-                }
-            </style>
+        </div>
+
+        <style>
+            .card {
+                background-color: black;
+                max-width: 200px;
+            }
             
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="col-md-9">
-                    <hr style="color: palegreen;">
-                </div>
+            .card-title {
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            
+            .card-img-top {
+                object-fit: cover;
+            }
+            
+            .col-md-2 {
+                flex-shrink: 0;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
+                <hr style="color: palegreen;">
             </div>
-            <h3 class="text-center white-fg" style="color: aquamarine;">Top Billed Cast</h3>
-            <div style="overflow-x: auto; white-space: nowrap;">
-                <div class="row white-fg" style="justify-content: center">
-                    {% for top_cast, img in movie.top_cast_and_img %}
-                        <div class="col-md-2">
-                            <div class="card mb-2">
-                                <img src="{{img}}" alt="{{top_cast}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{top_cast}}</h5>
-                                </div>
-                            </div>
+        </div>
+        <h3 class="text-center white-fg" style="color: aquamarine;">Top Billed Cast</h3>
+        <div style="overflow-x: auto; white-space: nowrap;">
+            <div class="row white-fg" style="justify-content: center">
+                {% for top_cast, img in movie.top_cast_and_img %}
+                <div class="col-md-2">
+                    <div class="card mb-2">
+                        <img src="{{img}}" alt="{{top_cast}}" class="card-img-top" style="border-radius: 5%; width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{top_cast}}</h5>
                         </div>
-                    {% endfor %}
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            
-            
+        </div>
+
+
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-9">

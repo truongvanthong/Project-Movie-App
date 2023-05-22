@@ -1,65 +1,102 @@
-{% extends 'myapp/base.html' %} {% block content %} {% block extra_css %}
+{% extends 'myapp/base.html' %} {% block content %}
 <style>
-    .form-label {
-        color: #4a4a4a;
-        font-weight: 600;
+    /* CSS styles specific to the signup page */
+    
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #111;
     }
     
-    .card {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    .signup-form {
+        width: 800px;
+        padding: 40px;
+        background-color: #222;
         border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
+        color: #fff;
     }
     
-    .card:hover {
+    .signup-form:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
         transform: translateY(-3px);
     }
     
+    .signup-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .signup-header h3 {
+        color: #f90;
+        font-size: 28px;
+        margin: 0;
+        font-weight: bold;
+    }
+    
+    .form-group label {
+        color: #fff;
+        font-weight: 600;
+    }
+    
+    .form-control {
+        background-color: #333;
+        color: #fff;
+        border: none;
+    }
+    
+    .form-control:focus {
+        box-shadow: none;
+    }
+    
     .btn {
         border-radius: 4px;
+        background-color: #f90;
+        border-color: #f90;
+        color: #fff;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
     }
     
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
+    .btn:hover {
+        background-color: #ff6600;
+        border-color: #ff6600;
     }
     
-    .btn-primary:hover {
-        background-color: #0069d9;
-        border-color: #0062cc;
+    .login-link {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .login-link a {
+        color: #f90;
+        text-decoration: none;
     }
 </style>
-{% endblock %}
-<div class="container mt-5 mb-5">
-    <div class="row justify-content-md-center">
-        <div class="col-md-6">
-            <div class="card border-primary">
-                <div class="card-header bg-primary text-capitalize text-center">
-                    <h3>SIGN UP</h3>
-                </div>
-                <div class="card-body">
-                    <form action="" method="post">
-                        {% csrf_token %} {% for f in form %}
-                        <div class="mb-3">
-                            <label for="{{f.auto_id}}" class="form-label">{{f.label_tag}}</label>{{f}}
-                            <div class="text-danger">
-                                {{f.errors|striptags}}
-                            </div>
-                        </div>
-                        {% endfor %}
-                        <div class="d-grid gap-2 mt-4">
-                            <input type="submit" value="Sign Up" class="btn btn-primary">
-                        </div>
-                    </form>
-                    {% for m in messages %}
-                    <div class="alert alert-{{m.tags}} mt-3" role="alert">
-                        {{m}}
-                    </div>
-                    {% endfor %}
+<div class="signup-container">
+    <div class="signup-form">
+        <div class="signup-header">
+            <h3>SIGN UP</h3>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %} {% for f in form %}
+            <div class="form-group">
+                <label for="{{f.auto_id}}">{{f.label_tag}}</label> {{f}}
+                <div class="text-danger">
+                    {{f.errors|striptags}}
                 </div>
             </div>
-        </div>
+            {% endfor %}
+            <div class="d-grid gap-2 mt-4">
+                <input type="submit" value="Sign Up" class="btn btn-primary">
+            </div>
+        </form>
+        <!-- <div class="login-link">
+            <a href="{% url 'login' %}">Already have an account? Login here.</a> -->
+
     </div>
 </div>
 {% endblock %}

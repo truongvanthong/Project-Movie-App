@@ -1,5 +1,5 @@
 @echo off
-echo Running data_Movie.py...
+echo Add data_Movie to the database ...
 python data_Movie.py
-echo Finished running data_Movie.py.
+echo Finished running data_Movie.
 pause

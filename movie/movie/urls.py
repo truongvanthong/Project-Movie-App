@@ -28,7 +28,6 @@ urlpatterns = [
     path('logout/',views.logoutuser, name = 'logout'),
     
     path('search/',views.search, name = 'search'),
-
     
     path('watched/<int:viewerid>/',views.watched, name = 'watched'),
     path('favourites/<int:viewerid>/',views.favourites, name = 'favourites'),
@@ -47,4 +46,5 @@ urlpatterns = [
     path('moviepage/<int:movieid>/<int:viewerid>/deletereview/',views.deleteReview, name = 'deletereview'),
 
     path('moviereviews/<int:movieid>/',views.movieReviews, name = 'reviews'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

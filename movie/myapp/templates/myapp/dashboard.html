@@ -2,42 +2,44 @@
 <div class="white-fg">
     <style>
         .search-container {
-        width: 100%; /* Điều chỉnh chiều rộng tùy ý */
-        margin: 0 auto; /* Để canh giữa */
-        padding-top: 10px;
-        /* padding-bottom: 10px; */
-        padding-left: 120px;
+            width: 100%;
+            /* Điều chỉnh chiều rộng tùy ý */
+            margin: 0 auto;
+            /* Để canh giữa */
+            padding-top: 10px;
+            /* padding-bottom: 10px; */
+            padding-left: 120px;
         }
-
+        
         .search-form {
-        width: 120%;
-        height: 40px;
-        display: flex;
-        justify-content: left;
+            width: 120%;
+            height: 40px;
+            display: flex;
+            justify-content: left;
         }
-
+        
         .input-group {
-        width: 85%;
+            width: 85%;
         }
-
+        
         .form-control {
-        width: 100%;
+            width: 100%;
         }
-    </style> 
+    </style>
 
     <div class="row" id="topper">
         <div class="col col-md-3">
             <h2 style="font-family: 'Lobster', cursive; font-size: 40px; padding-top: 10px;">Welcome {{user.last_name}}</h2>
-        </div>        
+        </div>
         <div class="col col-md-5">
             <div class="search-container browse" style="background-color: rgb(2, 59, 59);">
                 <form action="{% url 'search' %}" method="get" class="search-form">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search Movie By Name" name="q">
-                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Movie By Name" name="q">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                       <i class="bi bi-search"></i>
                     </button>
-                  </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -98,13 +100,13 @@
                 });
             });
         </script>
-    
+
         <div class="col-md-2 listing">
             <div class="dropdown" style="display: flex; justify-content:center;">
-            <button class="dropdown-toggle drop-style" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="dropdown-toggle drop-style" type="button" id="language" data-bs-toggle="dropdown" aria-expanded="false">
                 Language
             </button>
-            <ul class="dropdown-menu" style="background-color: black;overflow-y: scroll; max-height: 400px;" id="language-dropdown-menu" aria-labelledby="language">
+                <ul class="dropdown-menu" style="background-color: black;overflow-y: scroll; max-height: 400px;" id="language-dropdown-menu" aria-labelledby="language">
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=&q=">All</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=English">English</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=French">French</a></li>
@@ -114,7 +116,7 @@
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Telugu">Telugu</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Tamil">Tamil</a></li>
                     <li><a class="dropdown-item" href="{% url 'search'%}?lang=Kannada">Kannada</a></li>
-            </ul>
+                </ul>
             </div>
         </div>
         <script>
@@ -126,7 +128,7 @@
                     $("#search-form").submit();
                 });
             });
-        </script>      
+        </script>
     </div>
     <div class="container-fluid ">
         <div class="row mb-4 mt-2 ">

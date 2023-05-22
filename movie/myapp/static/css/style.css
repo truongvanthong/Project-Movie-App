@@ -127,19 +127,21 @@
     margin-top: 12px;
 }
 
-.login-style {
+
+/* .login-style {
     border: 2px solid gainsboro;
     padding: 12px;
     border-radius: 12px;
     margin: 50px;
-}
+} */
 
-.sign-style {
+
+/* .sign-style {
     background-color: rgba(201, 201, 233, 0.1);
     padding: 1em 2em;
     border-radius: 15px;
     margin: 10px;
-}
+} */
 
 .drop-style {
     color: rgb(102, 250, 17);

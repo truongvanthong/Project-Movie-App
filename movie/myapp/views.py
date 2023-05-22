@@ -69,7 +69,8 @@ def dashboard(request):
         return render(request, "myapp/dashboard.html",{'user':request.user ,  'page_obj':page_obj})
     else:
         return redirect('/login/')
-    
+
+
 def logoutuser(request):
     logout(request)
     return redirect('/')
@@ -243,31 +244,6 @@ def deleteReview(request, movieid, viewerid):
         return JsonResponse({'Success':'Review Deleted'})    
     else:    
         return redirect('/login/')    
-
-
-# def search(request):
-#     query = request.GET.get('q')
-#     genre = request.GET.get('genre') # lấy giá trị của tham số genre từ URL
-#     Movies = Movie.objects.all()
-
-#     if query:
-#         Movies = Movies.filter(title__icontains=query)
-
-#     if genre:
-#         Movies = Movies.filter(genre__icontains=genre)
-
-#     paginator = Paginator(Movies, 18)
-#     page_number = request.GET.get('page')
-
-#     if page_number is None:
-#         page_number = 1
-
-#     page_obj = paginator.get_page(page_number)
-
-#     context = {'page_obj': page_obj, 'query': query, 'genre': genre}
-#     return render(request, 'myapp/search.html', context)
-
-
 
 def search(request):
     query = request.GET.get('q')
